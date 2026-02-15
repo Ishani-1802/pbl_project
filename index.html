@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Real-Time Posture & Fatigue Monitor</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+body { background-color: #020617; color: #f8fafc; font-family: sans-serif; }
+.glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.1); }
+.gradient-text { background: linear-gradient(90deg,#60a5fa,#a855f7); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+#timerContainer { background:#fff; color:#020617; border:3px solid #3b82f6; }
+</style>
+
+</head>
+
+<body onload="startTimer()">
+
+<!-- TIMER -->
+<div id="timerContainer" class="fixed bottom-10 right-10 px-8 py-4 rounded-3xl flex items-center gap-4">
+<i class="fas fa-hourglass-start text-blue-600 text-2xl"></i>
+<span id="displayTime" class="text-4xl font-black font-mono">00:00</span>
+</div>
+
+<!-- NAVBAR -->
+<nav class="fixed w-full z-50 glass px-8 py-4 flex justify-between items-center">
+<div class="text-xl font-bold">PBL 2026</div>
+<div class="hidden md:flex gap-8 text-xs uppercase">
+<a href="#problem">Problem</a>
+<a href="#methodology">Methodology</a>
+<a href="#results">Dashboard</a>
+<a href="#team">Team</a>
+</div>
+</nav>
+
+<main class="max-w-6xl mx-auto px-6 pt-40 pb-32 space-y-32">
+
+<!-- TITLE -->
+<section class="text-center">
+<div class="text-sm text-gray-400 mb-6">
+Group Project | CSE Department
+</div>
+
+<h1 class="text-6xl font-extrabold mb-8">
+<span class="gradient-text">
+Real-Time Posture & Fatigue Monitor System
+</span>
+</h1>
+
+<p class="text-gray-400 max-w-2xl mx-auto italic text-lg text-left">
+"This project detects user posture in real time using computer vision and tracks fatigue levels through continuous monitoring. 
+The system alerts users when poor posture or high fatigue is detected to improve health and productivity."
+</p>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem" class="grid md:grid-cols-2 gap-12">
+
+<div class="glass p-10 rounded-3xl border-l-4 border-blue-600">
+<h2 class="text-3xl font-bold mb-6">Problem Statement</h2>
+<p class="text-gray-400">
+Prolonged bad posture while using computers causes health issues like back pain, fatigue, and reduced productivity. 
+Existing solutions lack real-time monitoring and automatic feedback. This project provides a smart posture and fatigue monitoring 
+system using webcam-based computer vision.
+</p>
+</div>
+
+<div class="space-y-6">
+
+<!-- LITERATURE REVIEW -->
+<div class="glass p-7 rounded-3xl">
+<h3 class="text-blue-400 font-bold mb-4">Literature Review</h3>
+
+<ul class="list-disc pl-6 text-sm text-gray-400 space-y-2">
+<li>Traditional posture monitoring uses wearable sensors like accelerometers and gyroscopes.</li>
+<li>These systems provide accurate tracking but are expensive and uncomfortable.</li>
+<li>Computer vision approaches using OpenCV and MediaPipe enable non-contact posture monitoring.</li>
+<li>Previous research focuses mainly on pose estimation and gesture recognition.</li>
+<li>Existing fatigue detection systems rely on eye-tracking or physiological sensors.</li>
+<li>Most solutions lack integrated posture and fatigue monitoring.</li>
+<li>Real-time alert systems are limited in current research.</li>
+</ul>
+</div>
+
+<!-- RESEARCH GAP -->
+<div class="glass p-7 rounded-3xl">
+<h3 class="text-purple-400 font-bold mb-4">Research Gap / Innovation</h3>
+
+<ul class="list-disc pl-6 text-sm text-gray-400 space-y-2">
+<li>No integrated posture and fatigue monitoring solution.</li>
+<li>Limited real-time intervention systems.</li>
+<li>Many solutions require specialized hardware.</li>
+<li>Lack of cost-effective health monitoring tools.</li>
+<li>Need for non-invasive ergonomic monitoring systems.</li>
+</ul>
+
+<h4 class="text-green-400 font-bold mt-6 mb-2">Proposed Solution</h4>
+
+<ul class="list-disc pl-6 text-sm text-gray-400 space-y-2">
+<li>Real-time posture detection.</li>
+<li>Fatigue scoring.</li>
+<li>Automated health alerts.</li>
+<li>Webcam-based monitoring without additional hardware.</li>
+</ul>
+
+</div>
+
+</div>
+</section>
+
+<!-- METHODOLOGY -->
+<section id="methodology" class="space-y-12">
+<h2 class="text-4xl font-bold text-center">System Methodology</h2>
+
+<div class="grid md:grid-cols-3 gap-8">
+
+<div class="glass p-8 rounded-3xl text-center">
+<i class="fas fa-database text-blue-500 text-3xl mb-4"></i>
+<h3 class="font-bold mb-2">Dataset / Input</h3>
+<p class="text-sm text-gray-400">
+Live webcam video captured using OpenCV and processed using MediaPipe body landmark detection.
+</p>
+</div>
+
+<div class="glass p-8 rounded-3xl text-center">
+<i class="fas fa-microchip text-purple-500 text-3xl mb-4"></i>
+<h3 class="font-bold mb-2">Model / Architecture</h3>
+<p class="text-sm text-gray-400">
+Computer vision pipeline using MediaPipe for posture detection, fatigue tracking algorithm, and real-time alert system.
+</p>
+</div>
+
+<div class="glass p-8 rounded-3xl text-center border border-green-500">
+<i class="fab fa-python text-green-500 text-3xl mb-4"></i>
+<h3 class="font-bold mb-4 text-green-400">Live Execution</h3>
+<a href="#" class="px-6 py-2 bg-green-600 rounded-full text-sm font-bold hover:bg-green-500">
+VIEW DEMO
+</a>
+</div>
+
+</div>
+</section>
+
+<!-- APPLICATION DASHBOARD -->
+<section id="results" class="glass p-12 rounded-3xl">
+
+<h2 class="text-3xl font-bold mb-10 text-center">
+Live Application Dashboard
+</h2>
+
+<p class="text-gray-400 text-center max-w-3xl mx-auto mb-10">
+The following interface represents the real-time output of our posture and fatigue monitoring system,
+showing posture statistics, fatigue risk score, session duration, and posture behavior tracking.
+</p>
+
+<!-- DASHBOARD DISPLAY -->
+<figure class="w-full">
+
+<div class="w-full rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-black/20">
+
+<img 
+src="dashboard.png"
+alt="Real-Time Posture Monitoring Dashboard"
+class="w-full h-auto object-contain"
+loading="lazy"
+/>
+
+</div>
+
+<figcaption class="text-gray-500 text-sm text-center mt-4 italic">
+Figure: Real-time posture and fatigue monitoring dashboard generated by the system.
+</figcaption>
+
+</figure>
+
+</section>
+
+
+<!-- TEAM -->
+<section id="team" class="text-center">
+<h2 class="text-sm text-gray-500 mb-12 uppercase tracking-widest">Academic Credits</h2>
+
+<div class="flex flex-wrap justify-center gap-10">
+
+<div class="glass px-12 py-8 rounded-3xl border-b-4 border-blue-600">
+<p class="text-blue-400 text-xs uppercase mb-2">Project Guide</p>
+<p class="text-xl font-bold">Dr. Sandeep Chaurasia</p>
+</div>
+
+<div class="glass px-12 py-8 rounded-3xl">
+<p class="text-gray-400 uppercase text-xs">Team Member</p>
+<p class="text-xl font-bold">Aanya Jain</p>
+<p class="text-sm text-gray-500">23FE10CSE00050</p>
+</div>
+
+<div class="glass px-12 py-8 rounded-3xl">
+<p class="text-gray-400 uppercase text-xs">Team Member</p>
+<p class="text-xl font-bold">Ishani Lohar</p>
+<p class="text-sm text-gray-500">23FE10CSE00832</p>
+</div>
+
+</div>
+</section>
+
+</main>
+
+<footer class="py-12 text-center bg-black">
+<p>Department of Computer Science & Engineering • 2026</p>
+</footer>
+
+<script>
+// TIMER
+let sec=0;
+function startTimer(){
+setInterval(()=>{
+sec++;
+let m=Math.floor(sec/60);
+let s=sec%60;
+document.getElementById("displayTime").innerText=
+`${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+},1000);
+}
+</script>
+
+</body>
+</html>
