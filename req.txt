@@ -1,0 +1,15 @@
+streamlit
+langchain
+langchain-community
+langchain-core
+faiss-cpu
+huggingface-hub
+transformers
+torch
+sentence-transformers
+ollama
+fastapi
+uvicorn
+python-multipart
+apscheduler
+websockets
