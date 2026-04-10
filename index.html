@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Real-Time Posture & Fatigue Monitor</title>
+<title>Celiac Disease AI Chatbot System</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -11,8 +11,13 @@
 <style>
 body { background-color: #020617; color: #f8fafc; font-family: sans-serif; }
 .glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.1); }
-.gradient-text { background: linear-gradient(90deg,#60a5fa,#a855f7); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.gradient-text { background: linear-gradient(90deg,#60a5fa,#06b6d4); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
 #timerContainer { background:#fff; color:#020617; border:3px solid #3b82f6; }
+
+.agent-card { border-left: 4px solid; }
+.tech-badge { display:inline-block; padding:4px 12px; border-radius:999px; font-size:12px; font-weight:600; margin:4px; }
+.flow-arrow { color:#60a5fa; font-size:1.5rem; text-align:center; margin:4px 0; }
+.stat-num { font-size:3rem; font-weight:900; line-height:1; }
 </style>
 
 </head>
@@ -20,208 +25,340 @@ body { background-color: #020617; color: #f8fafc; font-family: sans-serif; }
 <body onload="startTimer()">
 
 <!-- TIMER -->
-<div id="timerContainer" class="fixed bottom-10 right-10 px-8 py-4 rounded-3xl flex items-center gap-4">
-<i class="fas fa-hourglass-start text-blue-600 text-2xl"></i>
-<span id="displayTime" class="text-4xl font-black font-mono">00:00</span>
+<div id="timerContainer" class="fixed bottom-10 right-10 px-8 py-4 rounded-3xl flex items-center gap-4 z-50">
+  <i class="fas fa-hourglass-start text-blue-600 text-2xl"></i>
+  <span id="displayTime" class="text-4xl font-black font-mono">00:00</span>
 </div>
 
 <!-- NAVBAR -->
-<nav class="fixed w-full z-50 glass px-8 py-4 flex justify-between items-center">
-<div class="text-xl font-bold">PBL 2026</div>
-<div class="hidden md:flex gap-8 text-xs uppercase">
-<a href="#problem">Problem</a>
-<a href="#methodology">Methodology</a>
-<a href="#results">Dashboard</a>
-<a href="#team">Team</a>
-</div>
+<nav class="fixed w-full z-40 glass px-8 py-4 flex justify-between items-center">
+  <div class="text-xl font-bold gradient-text">Celiac AI Chatbot</div>
+  <div class="hidden md:flex gap-8 text-xs uppercase tracking-widest text-gray-400">
+    <a href="#problem" class="hover:text-white transition">Problem</a>
+    <a href="#methodology" class="hover:text-white transition">Methodology</a>
+    <a href="#features" class="hover:text-white transition">Features</a>
+    <a href="#results" class="hover:text-white transition">Dashboard</a>
+    <a href="#team" class="hover:text-white transition">Team</a>
+  </div>
 </nav>
 
 <main class="max-w-6xl mx-auto px-6 pt-40 pb-32 space-y-32">
 
-<!-- TITLE -->
+<!-- ── TITLE ─────────────────────────────────────────────────────────────── -->
 <section class="text-center">
-<div class="text-sm text-gray-400 mb-6">
-Group Project | CSE Department
-</div>
+  <div class="text-sm text-gray-400 mb-6 uppercase tracking-widest">
+    Group Project &nbsp;|&nbsp; CSE Department
+  </div>
 
-<h1 class="text-6xl font-extrabold mb-8">
-<span class="gradient-text">
-Real-Time Posture & Fatigue Monitor System
-</span>
-</h1>
+  <h1 class="text-6xl font-extrabold mb-8">
+    <span class="gradient-text">
+      Celiac Disease AI Chatbot System
+    </span>
+  </h1>
 
-<p class="text-gray-400 max-w-2xl mx-auto italic text-lg text-left">
-"This project detects user posture in real time using computer vision and tracks fatigue levels through continuous monitoring. 
-The system alerts users when poor posture or high fatigue is detected to improve health and productivity."
-</p>
+  <p class="text-gray-400 max-w-2xl mx-auto italic text-lg text-left">
+    “A smart, agent-driven AI assistant for celiac disease management that delivers personalised meal guidance, tracks symptoms, and provides timely real-time support making care more accessible and effective.”
+  </p>
 </section>
 
-<!-- PROBLEM -->
+<!-- ── PROBLEM ───────────────────────────────────────────────────────────── -->
 <section id="problem" class="grid md:grid-cols-2 gap-12">
 
-<div class="glass p-10 rounded-3xl border-l-4 border-blue-600">
-<h2 class="text-3xl font-bold mb-6">Problem Statement</h2>
-<p class="text-gray-400">
-Prolonged bad posture while using computers causes health issues like back pain, fatigue, and reduced productivity. 
-Existing solutions lack real-time monitoring and automatic feedback. This project provides a smart posture and fatigue monitoring 
-system using webcam-based computer vision.
-</p>
-</div>
+  <div class="glass p-10 rounded-3xl border-l-4 border-blue-600">
+    <h2 class="text-3xl font-bold mb-6">Problem Statement</h2>
+    <p class="text-gray-400 mb-4">
+      Celiac disease affects approximately 1% of the global population and demands strict dietary control, continuous symptom monitoring, and personalised care. Despite this, patients often lack access to reliable, on-demand guidance tailored to their needs.
+    </p>
+    <p class="text-gray-400">
+      Existing chatbot solutions remain generic and insufficient for clinical use, they lack domain knowledge, do not retain user history, and fail to support long term tracking and care.
+    </p>
+  </div>
 
-<div class="space-y-6">
+  <div class="space-y-6">
 
-<!-- LITERATURE REVIEW -->
-<div class="glass p-7 rounded-3xl">
-<h3 class="text-blue-400 font-bold mb-4">Literature Review</h3>
+    <div class="glass p-7 rounded-3xl">
+      <h3 class="text-blue-400 font-bold mb-4">Literature Review</h3>
+      <ul class="list-disc pl-6 text-sm text-gray-400 space-y-2">
+        <li>Retrieval-Augmented Generation (RAG) improves the accuracy of AI systems by combining language models with relevant external documents, ensuring responses are based on reliable information rather than assumptions.</li>
+        <li>Bio_ClinicalBERT, a model trained on clinical data, enables better understanding of medical terminology and patient-related queries, making it more suitable for healthcare applications.</li>
+        <li>Multi-agent systems are used to handle complex tasks by dividing them into specialised components, allowing better coordination and more efficient problem-solving.</li>
+        <li>Studies in healthcare AI show that personalised systems that track user history and symptoms over time provide more effective and meaningful support to patients.</li>
+      </ul>
+    </div>
 
-<ul class="list-disc pl-6 text-sm text-gray-400 space-y-2">
-<li>Traditional posture monitoring uses wearable sensors like accelerometers and gyroscopes.</li>
-<li>These systems provide accurate tracking but are expensive and uncomfortable.</li>
-<li>Computer vision approaches using OpenCV and MediaPipe enable non-contact posture monitoring.</li>
-<li>Previous research focuses mainly on pose estimation and gesture recognition.</li>
-<li>Existing fatigue detection systems rely on eye-tracking or physiological sensors.</li>
-<li>Most solutions lack integrated posture and fatigue monitoring.</li>
-<li>Real-time alert systems are limited in current research.</li>
-</ul>
-</div>
+    <div class="glass p-7 rounded-3xl">
+      <h3 class="text-cyan-400 font-bold mb-4">Research Gap / Innovation</h3>
+      <ul class="list-disc pl-6 text-sm text-gray-400 space-y-2">
+        <li>No system focuses specifically on celiac disease management</li>
+        <li>Existing solutions lack persistent cross-session user memory.</li>
+        <li>Important features like symptom tracking, reminders and continuous health monitoring are missing</li>
+      </ul>
 
-<!-- RESEARCH GAP -->
-<div class="glass p-7 rounded-3xl">
-<h3 class="text-purple-400 font-bold mb-4">Research Gap / Innovation</h3>
+      <h4 class="text-green-400 font-bold mt-6 mb-2">Proposed Solution</h4>
+      <ul class="list-disc pl-6 text-sm text-gray-400 space-y-2">
+        <li>Multi-agent system with specialist agents each focused on a distinct aspect of celiac management.</li>
+        <li>Uses a RAG pipeline with Bio_ClinicalBERT and FAISS to ensure every response is grounded in reliable medical knowledge, providing accurate and context-aware guidance.</li>
+        <li>Persistent memory agent that learns patient profile enabling increasingly personalised recommendations over time.</li>
+        <li>Integrates symptom tracking, smart reminders, and a user-friendly interface with multi-chat support, along with the ability to download meal and symptom logs with timestamps.</li>
+      </ul>
+    </div>
 
-<ul class="list-disc pl-6 text-sm text-gray-400 space-y-2">
-<li>No integrated posture and fatigue monitoring solution.</li>
-<li>Limited real-time intervention systems.</li>
-<li>Many solutions require specialized hardware.</li>
-<li>Lack of cost-effective health monitoring tools.</li>
-<li>Need for non-invasive ergonomic monitoring systems.</li>
-</ul>
-
-<h4 class="text-green-400 font-bold mt-6 mb-2">Proposed Solution</h4>
-
-<ul class="list-disc pl-6 text-sm text-gray-400 space-y-2">
-<li>Real-time posture detection.</li>
-<li>Fatigue scoring.</li>
-<li>Automated health alerts.</li>
-<li>Webcam-based monitoring without additional hardware.</li>
-</ul>
-
-</div>
-
-</div>
+  </div>
 </section>
 
-<!-- METHODOLOGY -->
+<!-- ── METHODOLOGY ───────────────────────────────────────────────────────── -->
 <section id="methodology" class="space-y-12">
-<h2 class="text-4xl font-bold text-center">System Methodology</h2>
+  <h2 class="text-4xl font-bold text-center">System Methodology</h2>
 
-<div class="grid md:grid-cols-3 gap-8">
+  <!-- Architecture layers -->
+  <div class="glass p-8 rounded-3xl">
+    <h3 class="text-blue-400 font-bold mb-6 text-lg">System Architecture — Data Flow</h3>
+    <div class="space-y-2">
+      <div class="flex items-center gap-4 bg-purple-900/30 border border-purple-500/30 rounded-xl px-6 py-3">
+        <i class="fab fa-react text-purple-400 text-xl w-8"></i>
+        <div>
+          <span class="font-bold text-purple-300">React Frontend</span>
+          <span class="text-gray-400 text-sm ml-3">Chat UI · Sidebar · Dashboard · Reminder toasts</span>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flex items-center gap-4 bg-blue-900/30 border border-blue-500/30 rounded-xl px-6 py-3">
+        <i class="fas fa-server text-blue-400 text-xl w-8"></i>
+        <div>
+          <span class="font-bold text-blue-300">FastAPI Backend</span>
+          <span class="text-gray-400 text-sm ml-3">REST endpoints · Session memory · SQLite · APScheduler</span>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flex items-center gap-4 bg-cyan-900/30 border border-cyan-500/30 rounded-xl px-6 py-3">
+        <i class="fas fa-sitemap text-cyan-400 text-xl w-8"></i>
+        <div>
+          <span class="font-bold text-cyan-300">Orchestrator Agent</span>
+          <span class="text-gray-400 text-sm ml-3">Intent classification → routes to specialist agent</span>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="grid grid-cols-4 gap-3">
+        <div class="bg-green-900/30 border border-green-500/30 rounded-xl px-4 py-3 text-center text-sm">
+          <i class="fas fa-utensils text-green-400 block mb-1"></i>
+          <span class="text-green-300 font-bold">Meal Planner</span>
+        </div>
+        <div class="bg-red-900/30 border border-red-500/30 rounded-xl px-4 py-3 text-center text-sm">
+          <i class="fas fa-heartbeat text-red-400 block mb-1"></i>
+          <span class="text-red-300 font-bold">Symptom Tracker</span>
+        </div>
+        <div class="bg-yellow-900/30 border border-yellow-500/30 rounded-xl px-4 py-3 text-center text-sm">
+          <i class="fas fa-spa text-yellow-400 block mb-1"></i>
+          <span class="text-yellow-300 font-bold">Lifestyle Coach</span>
+        </div>
+        <div class="bg-pink-900/30 border border-pink-500/30 rounded-xl px-4 py-3 text-center text-sm">
+          <i class="fas fa-bell text-pink-400 block mb-1"></i>
+          <span class="text-pink-300 font-bold">Reminder Agent</span>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flex items-center gap-4 bg-orange-900/30 border border-orange-500/30 rounded-xl px-6 py-3">
+        <i class="fas fa-database text-orange-400 text-xl w-8"></i>
+        <div>
+          <span class="font-bold text-orange-300">Shared Tool Layer</span>
+          <span class="text-gray-400 text-sm ml-3">FAISS · Bio_ClinicalBERT · SQLite · Memory Agent</span>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flex items-center gap-4 bg-gray-900/50 border border-gray-600/30 rounded-xl px-6 py-3">
+        <i class="fas fa-microchip text-gray-300 text-xl w-8"></i>
+        <div>
+          <span class="font-bold text-gray-200">Ollama · Llama 3.2:1b</span>
+          <span class="text-gray-400 text-sm ml-3">Local LLM — fully private, no cloud dependency</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div class="glass p-8 rounded-3xl text-center">
-<i class="fas fa-database text-blue-500 text-3xl mb-4"></i>
-<h3 class="font-bold mb-2">Dataset / Input</h3>
-<p class="text-sm text-gray-400">
-Live webcam video captured using OpenCV and processed using MediaPipe body landmark detection.
-</p>
-</div>
+  <!-- Three pillars -->
+  <div class="grid md:grid-cols-3 gap-8">
 
-<div class="glass p-8 rounded-3xl text-center">
-<i class="fas fa-microchip text-purple-500 text-3xl mb-4"></i>
-<h3 class="font-bold mb-2">Model / Architecture</h3>
-<p class="text-sm text-gray-400">
-Computer vision pipeline using MediaPipe for posture detection, fatigue tracking algorithm, and real-time alert system.
-</p>
-</div>
+    <div class="glass p-8 rounded-3xl text-center">
+      <i class="fas fa-file-medical text-blue-500 text-3xl mb-4"></i>
+      <h3 class="font-bold mb-2">RAG Pipeline</h3>
+      <p class="text-sm text-gray-400">
+        Celiac-related documents are processed and stored using Bio_ClinicalBERT and FAISS.
+        Relevant information is retrieved for each query to ensure accurate and reliable responses.
+      </p>
+    </div>
 
-<div class="glass p-8 rounded-3xl text-center border border-green-500">
-<i class="fab fa-python text-green-500 text-3xl mb-4"></i>
-<h3 class="font-bold mb-4 text-green-400">Live Execution</h3>
-<a href="#" class="px-6 py-2 bg-green-600 rounded-full text-sm font-bold hover:bg-green-500">
-VIEW DEMO
-</a>
-</div>
+    <div class="glass p-8 rounded-3xl text-center">
+      <i class="fas fa-brain text-purple-500 text-3xl mb-4"></i>
+      <h3 class="font-bold mb-2">Persistent Memory</h3>
+      <p class="text-sm text-gray-400">
+        The system stores important user details such as symptoms, triggers, and preferences.
+        This information is used across sessions to provide personalised and consistent guidance.
+      </p>
+    </div>
 
-</div>
+    <div class="glass p-8 rounded-3xl text-center border border-green-500/40">
+      <i class="fab fa-python text-green-500 text-3xl mb-4"></i>
+      <h3 class="font-bold mb-4 text-green-400">Live Execution</h3>
+      <p class="text-sm text-gray-400 mb-4">Running locally on Ollama. All data stored in SQLite. No cloud APIs.</p>
+      <a href="http://localhost:3000" class="px-6 py-2 bg-green-600 rounded-full text-sm font-bold hover:bg-green-500 transition">
+        VIEW DEMO
+      </a>
+    </div>
+
+  </div>
 </section>
 
-<!-- APPLICATION DASHBOARD -->
+<!-- ── KEY FEATURES ──────────────────────────────────────────────────────── -->
+<section id="features" class="space-y-10">
+  <h2 class="text-4xl font-bold text-center">Key Agentic Features</h2>
+
+  <div class="grid md:grid-cols-2 gap-8">
+
+    <div class="glass p-8 rounded-3xl agent-card border-blue-500">
+      <div class="flex items-center gap-3 mb-4">
+        <i class="fas fa-route text-blue-400 text-xl"></i>
+        <h3 class="font-bold text-blue-300 text-lg">Multi-Agent Routing</h3>
+      </div>
+      <p class="text-gray-400 text-sm">The orchestrator identifies user intent and routes queries to one of four specialised agents, each designed for a specific task and response style. Agent badges shown on every response.</p>
+    </div>
+
+    <div class="glass p-8 rounded-3xl agent-card border-cyan-500">
+      <div class="flex items-center gap-3 mb-4">
+        <i class="fas fa-search text-cyan-400 text-xl"></i>
+        <h3 class="font-bold text-cyan-300 text-lg">Clinical RAG Retrieval</h3>
+      </div>
+      <p class="text-gray-400 text-sm">BRetrieves relevant medical information using Bio_ClinicalBERT and FAISS to provide accurate, context-aware, and reliable responses.</p>
+    </div>
+
+    <div class="glass p-8 rounded-3xl agent-card border-purple-500">
+      <div class="flex items-center gap-3 mb-4">
+        <i class="fas fa-memory text-purple-400 text-xl"></i>
+        <h3 class="font-bold text-purple-300 text-lg">Persistent Agent Memory</h3>
+      </div>
+      <p class="text-gray-400 text-sm">Stores user details such as symptoms, triggers, and preferences, enabling personalised guidance that improves over time.</p>
+    </div>
+
+    <div class="glass p-8 rounded-3xl agent-card border-red-500">
+      <div class="flex items-center gap-3 mb-4">
+        <i class="fas fa-stethoscope text-red-400 text-xl"></i>
+        <h3 class="font-bold text-red-300 text-lg">Symptom Tracking & Severity</h3>
+      </div>
+      <p class="text-gray-400 text-sm">Automatically detects symptoms, records severity levels, and maintains a history to support better monitoring and insights.</p>
+    </div>
+
+    <div class="glass p-8 rounded-3xl agent-card border-yellow-500">
+      <div class="flex items-center gap-3 mb-4">
+        <i class="fas fa-bell text-yellow-400 text-xl"></i>
+        <h3 class="font-bold text-yellow-300 text-lg">Proactive Reminders</h3>
+      </div>
+      <p class="text-gray-400 text-sm">Schedules and delivers timely reminders based on user input, helping users manage their daily health routines effectively.</p>
+    </div>
+
+    
+
+  </div>
+</section>
+
+<!-- ── DASHBOARD / RESULTS ───────────────────────────────────────────────── -->
 <section id="results" class="glass p-12 rounded-3xl">
 
-<h2 class="text-3xl font-bold mb-10 text-center">
-Live Application Dashboard
-</h2>
+  <h2 class="text-3xl font-bold mb-10 text-center">
+    Application Dashboard
+  </h2>
 
-<p class="text-gray-400 text-center max-w-3xl mx-auto mb-10">
-The following interface represents the real-time output of our posture and fatigue monitoring system,
-showing posture statistics, fatigue risk score, session duration, and posture behavior tracking.
-</p>
+  <p class="text-gray-400 text-center max-w-3xl mx-auto mb-10">
+    The following interface represents the real-time output of the celiac AI chatbot system showing the agent-badged responses, symptom tracking dashboard, meal log, and PDF export.
+  </p>
 
-<!-- DASHBOARD DISPLAY -->
-<figure class="w-full">
+  <!-- Stats row -->
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
+    
+    </div>
+  </div>
 
-<div class="w-full rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-black/20">
+  <!-- Dashboard display -->
+<figure class="w-full space-y-8">
 
-<img 
-src="dashboard.png"
-alt="Real-Time Posture Monitoring Dashboard"
-class="w-full h-auto object-contain"
-loading="lazy"
-/>
+  <!-- Screenshot 1 -->
+  <div class="rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+    <img src="chat.png" alt="Chat Interface"
+         class="w-full h-[420px] object-contain bg-black">
+    <p class="text-center text-sm text-gray-400 mt-3">Chat Interface</p>
+  </div>
 
-</div>
+  <!-- Screenshot 2 -->
+  <div class="rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+    <img src="dashboard.png" alt="Dashboard"
+         class="w-full h-[420px] object-contain bg-black">
+    <p class="text-center text-sm text-gray-400 mt-3">Symptom Dashboard</p>
+  </div>
 
-<figcaption class="text-gray-500 text-sm text-center mt-4 italic">
-Figure: Real-time posture and fatigue monitoring dashboard generated by the system.
-</figcaption>
+  <figcaption class="text-gray-500 text-sm text-center mt-6 italic">
+    Figure: Celiac AI Chatbot — real-time interaction and system dashboard.
+  </figcaption>
 
 </figure>
 
+  <!-- Tech stack badges -->
+  <div class="mt-10 text-center">
+    <p class="text-gray-500 text-sm mb-4 uppercase tracking-widest">Technology Stack</p>
+    <div>
+      <span class="tech-badge bg-blue-900/50 text-blue-300 border border-blue-700">React.js</span>
+      <span class="tech-badge bg-green-900/50 text-green-300 border border-green-700">FastAPI</span>
+      <span class="tech-badge bg-purple-900/50 text-purple-300 border border-purple-700">LangChain</span>
+      <span class="tech-badge bg-cyan-900/50 text-cyan-300 border border-cyan-700">FAISS</span>
+      <span class="tech-badge bg-orange-900/50 text-orange-300 border border-orange-700">Ollama</span>
+      <span class="tech-badge bg-red-900/50 text-red-300 border border-red-700">Bio_ClinicalBERT</span>
+      <span class="tech-badge bg-yellow-900/50 text-yellow-300 border border-yellow-700">SQLite</span>
+      <span class="tech-badge bg-gray-800 text-gray-300 border border-gray-600">APScheduler</span>
+      <span class="tech-badge bg-blue-900/50 text-blue-300 border border-blue-700">Llama 3.2:1b</span>
+    </div>
+  </div>
+
 </section>
 
-
-<!-- TEAM -->
+<!-- ── TEAM ──────────────────────────────────────────────────────────────── -->
 <section id="team" class="text-center">
-<h2 class="text-sm text-gray-500 mb-12 uppercase tracking-widest">Academic Credits</h2>
+  <h2 class="text-sm text-gray-500 mb-12 uppercase tracking-widest">Academic Credits</h2>
 
-<div class="flex flex-wrap justify-center gap-10">
+  <div class="flex flex-wrap justify-center gap-10">
 
-<div class="glass px-12 py-8 rounded-3xl border-b-4 border-blue-600">
-<p class="text-blue-400 text-xs uppercase mb-2">Project Guide</p>
-<p class="text-xl font-bold">Dr. Sandeep Chaurasia</p>
-</div>
+    <div class="glass px-12 py-8 rounded-3xl border-b-4 border-blue-600">
+      <p class="text-blue-400 text-xs uppercase mb-2">Project Guide</p>
+      <p class="text-xl font-bold">Dr. Sandeep Chaurasia</p>
+    </div>
 
-<div class="glass px-12 py-8 rounded-3xl">
-<p class="text-gray-400 uppercase text-xs">Team Member</p>
-<p class="text-xl font-bold">Aanya Jain</p>
-<p class="text-sm text-gray-500">23FE10CSE00050</p>
-</div>
+    <div class="glass px-12 py-8 rounded-3xl">
+      <p class="text-gray-400 uppercase text-xs">Team Member</p>
+      <p class="text-xl font-bold">Aanya Jain</p>
+      <p class="text-sm text-gray-500">23FE10CSE00050</p>
+    </div>
 
-<div class="glass px-12 py-8 rounded-3xl">
-<p class="text-gray-400 uppercase text-xs">Team Member</p>
-<p class="text-xl font-bold">Ishani Lohar</p>
-<p class="text-sm text-gray-500">23FE10CSE00832</p>
-</div>
+    <div class="glass px-12 py-8 rounded-3xl">
+      <p class="text-gray-400 uppercase text-xs">Team Member</p>
+      <p class="text-xl font-bold">Ishani Lohar</p>
+      <p class="text-sm text-gray-500">23FE10CSE00832</p>
+    </div>
 
-</div>
+  </div>
 </section>
 
 </main>
 
-<footer class="py-12 text-center bg-black">
-<p>Department of Computer Science & Engineering • 2026</p>
+<footer class="py-12 text-center bg-black text-gray-600">
+  <p>Department of Computer Science &amp; Engineering &nbsp;•&nbsp; 2026</p>
 </footer>
 
 <script>
-// TIMER
-let sec=0;
-function startTimer(){
-setInterval(()=>{
-sec++;
-let m=Math.floor(sec/60);
-let s=sec%60;
-document.getElementById("displayTime").innerText=
-`${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
-},1000);
+let sec = 0;
+function startTimer() {
+  setInterval(() => {
+    sec++;
+    let m = Math.floor(sec / 60);
+    let s = sec % 60;
+    document.getElementById("displayTime").innerText =
+      `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+  }, 1000);
 }
 </script>
 
